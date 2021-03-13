@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>排行榜</title>
+</head>
+<body>
+<h1>排行榜</h1>
+
+<table id="rank-table">
+    <thead>
+        <tr>
+            <td>排名</td>
+            <td>name</td>
+            <td>score</td>
+        </tr>
+    </thead>
+    <tbody id="tbody">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
+
+<script>
+    //1、创建请求对象
+    var xmlhttp = new XMLHttpRequest();
+
+
+
+    //4、处理服务器的相应，当 readyState 等于 4 且状态为 200 时，表示响应已就绪。
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            //你想做的事
+            let json = xmlhttp.responseText;
+
+            let list = JSON.parse(json);
+
+            let dom = "";
+            let body = document.getElementById("tbody");
+            list.forEach((item, index) => {
+                dom += `<tr>
+                        <td>${++index}</td>
+                        <td>${item.user.name}</td>
+                        <td>${item.score}</td>
+                    </tr>`;
+            });
+
+            body.innerHTML = dom;
+
+
+            console.log(json);
+        }
+    };
+
+    //2、规定请求的类型、URL 以及是否异步处理请求。
+    xmlhttp.open("GET","/rankData", true);
+
+    //3、将请求发送到服务器。
+    xmlhttp.send();
+
+
+</script>
