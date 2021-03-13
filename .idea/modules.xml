@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Spring-boot-first.iml" filepath="$PROJECT_DIR$/.idea/Spring-boot-first.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/fisrt-springboot.iml" filepath="$PROJECT_DIR$/.idea/fisrt-springboot.iml" />
     </modules>
   </component>
 </project>
